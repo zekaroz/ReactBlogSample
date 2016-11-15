@@ -1,5 +1,4 @@
-import {FETCH_POSTS} from '../actions/index';
-
+import { FETCH_POST , FETCH_POSTS} from '../actions/index';
 
 /*
 This is the place where we should define our intents for the state for
@@ -12,9 +11,11 @@ const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, action){
     switch (action.type) {
+      case FETCH_POST:
+          return {...state, post: action.payload.data}
       case FETCH_POSTS:
-      /*check the action creator*/
-      return {...state, all: action.payload.data }
+          /*check the action creator*/
+          return {...state, all: action.payload.data }
       default:
         return state;
     }
